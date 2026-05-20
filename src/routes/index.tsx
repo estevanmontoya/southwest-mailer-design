@@ -542,6 +542,38 @@ function ReserveCta() {
   );
 }
 
+const industries = [
+  "Roofing", "HVAC", "Plumbing", "Electrical", "Solar",
+  "Real Estate", "Insurance Agency", "Dentist", "Chiropractor", "Auto Repair",
+  "Pest Control", "Landscaping", "Remodeling Company", "Restaurant", "Martial Arts School",
+];
+
+function Industries() {
+  return (
+    <section className="border-b border-border bg-card py-20 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-bold uppercase tracking-widest text-primary">Who It's For</span>
+          <h2 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">Built for local service businesses.</h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Lock your industry in your ZIP code. Only one business per category per mailer.
+          </p>
+        </div>
+        <div className="mt-12 flex flex-wrap justify-center gap-3">
+          {industries.map((i) => (
+            <span
+              key={i}
+              className="rounded-full border-2 border-border bg-background px-5 py-2.5 text-sm font-bold transition hover:border-primary hover:text-primary"
+            >
+              {i}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-background py-12">
