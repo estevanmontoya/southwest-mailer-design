@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Southwest Media Agency" },
+      { name: "description", content: "Helping small business reach their local community, one home at a time." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Southwest Media Agency" },
+      { property: "og:description", content: "Helping small business reach their local community, one home at a time." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Southwest Media Agency" },
+      { name: "twitter:description", content: "Helping small business reach their local community, one home at a time." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/940862ba-5fe1-450a-b6f2-db54dc84c72a" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/940862ba-5fe1-450a-b6f2-db54dc84c72a" },
     ],
     links: [
       {
