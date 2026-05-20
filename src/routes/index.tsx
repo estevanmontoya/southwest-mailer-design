@@ -192,15 +192,20 @@ function Packages() {
           {packages.map((p) => (
             <div
               key={p.name}
-              className="group relative overflow-hidden rounded-3xl border-2 border-border bg-card p-8 transition hover:border-primary sm:p-10"
+              className={`group relative overflow-hidden rounded-3xl border-2 border-border bg-card p-8 transition sm:p-10 ${p.comingSoon ? "opacity-70 grayscale" : "hover:border-primary"}`}
             >
+              {p.comingSoon && (
+                <div className="absolute right-5 top-5 rounded-full bg-foreground px-3 py-1 text-[10px] font-black uppercase tracking-widest text-background">
+                  Coming Soon
+                </div>
+              )}
               <div className="flex items-start justify-between">
                 <div>
                   <h3 className="text-3xl font-black">{p.name}</h3>
                   <p className="mt-1 text-sm font-semibold uppercase tracking-wider text-muted-foreground">{p.size}</p>
                 </div>
                 <div
-                  className={`rounded-2xl px-4 py-3 text-center ${p.accent === "primary" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
+                  className={`rounded-2xl px-4 py-3 text-center ${p.comingSoon ? "bg-muted text-muted-foreground" : p.accent === "primary" ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
                 >
                   <div className="text-[10px] font-bold uppercase tracking-widest opacity-80">Homes</div>
                   <div className="text-2xl font-black leading-none">{p.homes}</div>
@@ -209,8 +214,8 @@ function Packages() {
 
               {/* Postcard preview */}
               <div
-                className={`mt-8 aspect-[5/3] w-full rounded-2xl p-6 ${p.accent === "primary" ? "text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
-                style={p.accent === "primary" ? { background: "var(--gradient-sunset)" } : undefined}
+                className={`mt-8 aspect-[5/3] w-full rounded-2xl p-6 ${p.comingSoon ? "bg-muted text-muted-foreground" : p.accent === "primary" ? "text-primary-foreground" : "bg-secondary text-secondary-foreground"}`}
+                style={!p.comingSoon && p.accent === "primary" ? { background: "var(--gradient-sunset)" } : undefined}
               >
                 <div className="flex h-full flex-col justify-between">
                   <div className="text-xs font-bold uppercase tracking-widest opacity-75">{p.size}</div>
@@ -237,12 +242,18 @@ function Packages() {
                   <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Starting at</div>
                   <div className="text-2xl font-black">~10¢ per home</div>
                 </div>
-                <a
-                  href="#reserve"
-                  className="inline-flex items-center gap-1 rounded-full bg-foreground px-5 py-2.5 text-sm font-bold text-background transition hover:bg-primary"
-                >
-                  Reserve <ArrowRight className="h-4 w-4" />
-                </a>
+                {p.comingSoon ? (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-muted px-5 py-2.5 text-sm font-bold text-muted-foreground">
+                    Coming Soon
+                  </span>
+                ) : (
+                  <a
+                    href="#reserve"
+                    className="inline-flex items-center gap-1 rounded-full bg-foreground px-5 py-2.5 text-sm font-bold text-background transition hover:bg-primary"
+                  >
+                    Reserve <ArrowRight className="h-4 w-4" />
+                  </a>
+                )}
               </div>
             </div>
           ))}
