@@ -595,6 +595,7 @@ function Index() {
       <Hero />
       <LogosBar />
       <Packages />
+      <Industries />
       <AddOn />
       <HowItWorks />
       <Benefits />
