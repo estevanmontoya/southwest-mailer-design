@@ -172,6 +172,7 @@ const packages = [
       "Approx. 10¢ per home",
     ],
     accent: "secondary" as const,
+    comingSoon: true,
   },
 ];
 
